@@ -5,6 +5,7 @@
 #include "Heap_display.h"
 #include "AVLTree_display.h"
 #include "Graph_Display.h"
+#include "Trie_display.h"
 
 int main() {       
     srand(time(0));
@@ -18,6 +19,11 @@ int main() {
 
     SSL SSL;
     SLL_display::sslInstance = &SSL; 
+
+
+    Trie Trie;
+    Trie_Display::TrieInstance = &Trie;
+    Trie.Visualize(Trie.root, screenWidth / 10, screenHeight / 2, 150, 0);
 
     MinHeap minHeap;
     Heap_display::heapInstance = &minHeap;
@@ -44,8 +50,11 @@ int main() {
             case ScreenID::HeapScreen: 
                 Heap_display::Display();
                 break;
+
             case ScreenID::AVLTreeScreen: 
                 AVLTree_display::Display();
+                //Trie_Display::Display();
+
                 break;
             case ScreenID::GraphScreen: 
                 Graph_display::Display();
